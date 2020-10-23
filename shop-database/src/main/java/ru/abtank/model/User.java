@@ -12,7 +12,7 @@ public class User {
     private Long id;
 
     @Column(length = 32, nullable = false)
-    private String name;
+    private String login;
 
     @Column(length = 128, nullable = false)
     private String password;
@@ -29,18 +29,18 @@ public class User {
     @Column
     private Integer age;
 
-//    @Column (name = "first_name")
-//    private String firstName;
-//
-//    @Column (name = "last_name")
-//    private String lastName;
+    @Column (name = "first_name")
+    private String firstName;
+
+    @Column (name = "last_name")
+    private String lastName;
 
     public User() {
     }
 
-    public User(Long id, String name, String password) {
+    public User(Long id, String login, String password) {
         this.id = id;
-        this.name = name;
+        this.login = login;
         this.password = password;
     }
 
@@ -53,11 +53,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
