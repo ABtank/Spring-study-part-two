@@ -21,6 +21,7 @@
                      relativeToChangelogFile="true"
                      splitStatements="true"
                      stripComments="true"/>
+<!--            clean install liquibase:rollback -Dliquibase.rollbackTag=db_init-->
         </rollback>
     </changeSet>
 

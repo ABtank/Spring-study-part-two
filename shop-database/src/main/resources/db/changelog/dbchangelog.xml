@@ -10,6 +10,7 @@
         <runningAs username="postgres"/>
     </preConditions>
 <!--метка пустой базы-->
+<!--    clean install liquibase:update-->
     <changeSet id="0" author="abtank">
         <tagDatabase tag="db_init"/>
     </changeSet>
