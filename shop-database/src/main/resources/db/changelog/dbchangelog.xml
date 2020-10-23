@@ -3,7 +3,7 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 <!--для какой базы и под кем будут вноситься изменения-->
     <preConditions>
         <dbms type="postgresql"/>
@@ -14,7 +14,7 @@
         <tagDatabase tag="db_init"/>
     </changeSet>
 
-    <include file="v-1.0/db.changelog-v1.0.xml" relativeToChangelogFile="true"/>
+    <include file="v-1.0/dbchangelog-v1.0.xml" relativeToChangelogFile="true"/>
 
     <changeSet id="10" author="abtank">
         <tagDatabase tag="v-1.0"/>
