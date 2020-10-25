@@ -6,14 +6,23 @@
     );
 GO
 
+    CREATE TABLE brands (
+        id bigserial not null ,
+         name varchar(32) not null,
+         description text,
+        PRIMARY KEY (id)
+    );
+GO
+
     CREATE TABLE products (
        id bigserial not null ,
         name varchar(32) not null,
-        category_id bigserial,
+        category_id bigserial not null ,
+        brand_id bigserial not null ,
         price real not null ,
         rating smallint,
         discount real,
-        new smallint not null,
+        novelty smallint not null,
        PRIMARY KEY (id)
     );
 GO
@@ -35,10 +44,11 @@ GO
     );
 GO
 
-    CREATE TABLE order_item (
+    CREATE TABLE order_items (
         id bigserial not null,
         order_id bigserial not null,
         product_id bigserial not null,
+        count int not null,
         PRIMARY KEY (id)
     );
 GO
@@ -57,20 +67,26 @@ GO
                 REFERENCES categories(id);
 GO
 
+    ALTER TABLE products
+        ADD CONSTRAINT fk_products_brands
+            FOREIGN KEY (brand_id)
+                REFERENCES brands(id);
+GO
+
     ALTER TABLE order_details
         ADD CONSTRAINT fk_order_details_products
             FOREIGN KEY (order_item_id)
-                REFERENCES order_item(id);
+                REFERENCES order_items(id);
 GO
 
-    ALTER TABLE order_item
-        ADD CONSTRAINT fk_order_item_orders
+    ALTER TABLE order_items
+        ADD CONSTRAINT fk_order_items_orders
             FOREIGN KEY (order_id)
                 REFERENCES orders(id);
 GO
 
-    ALTER TABLE order_item
-        ADD CONSTRAINT fk_order_item_products
+    ALTER TABLE order_items
+        ADD CONSTRAINT fk_order_items_products
             FOREIGN KEY (product_id)
                 REFERENCES products(id);
 GO
