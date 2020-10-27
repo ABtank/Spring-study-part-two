@@ -2,36 +2,29 @@ package ru.abtank.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
-@Table (name = "brands")
-public class Brand {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @Column (name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "name", unique = true, nullable = false)
+    @Column
     private String name;
-
-    @OneToMany(
-            mappedBy = "brand",
-            cascade = CascadeType.ALL)
-    private List<Product> products;
 
     @Column
     private String description;
 
-    public Brand() {
-    }
+    @OneToMany(
+            mappedBy = "category",
+            cascade = CascadeType.ALL)
+    private List<Product> products;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Category() {
     }
 
     public String getName() {
@@ -50,11 +43,29 @@ public class Brand {
         this.description = description;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public List<Product> getProducts() {
         return products;
     }
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id.equals(category.id) &&
+                name.equals(category.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

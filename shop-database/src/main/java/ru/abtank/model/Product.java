@@ -7,20 +7,21 @@ import java.math.BigDecimal;
 @Table(name = "products")
 public class Product {
 
-    @Column
+    @Id
+    @Column (name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @Column(name = "products")
     private String name;
 
     @Column (name = "category_id")
     @ManyToOne
-    Ctaegory ctaegory;
+    private Category category;
 
     @Column (name = "category_id")
     @ManyToOne
-    Brand brand;
+    private Brand brand;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -37,11 +38,11 @@ public class Product {
     public Product() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,12 +54,12 @@ public class Product {
         this.name = name;
     }
 
-    public Ctaegory getCtaegory() {
-        return ctaegory;
+    public Category getCtaegory() {
+        return category;
     }
 
-    public void setCtaegory(Ctaegory ctaegory) {
-        this.ctaegory = ctaegory;
+    public void setCtaegory(Category category) {
+        this.category = category;
     }
 
     public Brand getBrand() {

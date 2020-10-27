@@ -7,9 +7,10 @@ import java.math.BigDecimal;
 @Table(name = "order_details")
 public class OrderDetail {
 
-    @Column
+    @Id
+    @Column (name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Long id;
 
     @ManyToOne
     @Column(name = "order_id")
@@ -25,11 +26,11 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
