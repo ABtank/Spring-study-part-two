@@ -101,4 +101,12 @@ public class Product {
     public void setNovelty(Integer novelty) {
         this.novelty = novelty;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
