@@ -6,10 +6,12 @@
 GO
 
     create table users (
-       id bigserial not null ,
+        id bigserial not null ,
+        login varchar(32) not null,
         age integer,
         email varchar(255),
-        name varchar(32) not null,
+        first_name varchar(32),
+        last_name varchar(32),
         password varchar(128) not null,
         primary key (id)
     );

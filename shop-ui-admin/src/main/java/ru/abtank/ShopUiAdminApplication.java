@@ -1,13 +1,13 @@
-package ru.abtank.shopadminui;
+package ru.abtank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShopAdminUiApplication {
+public class ShopUiAdminApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ShopAdminUiApplication.class, args);
+		SpringApplication.run(ShopUiAdminApplication.class, args);
 	}
 
 }
